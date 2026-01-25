@@ -1,0 +1,5 @@
+# Ignore contents of input directory (e.g. personal CVs/JDs)
+input/*
+!input/.keep
+
+.DS_Store
