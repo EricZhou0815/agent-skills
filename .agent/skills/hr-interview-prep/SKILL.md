@@ -26,11 +26,15 @@ Use this skill when the user requesting:
 
 ## Workflow
 
-### 1. The Setup (Analysis)
+### 1. The Setup (Analysis & Research)
 **Input**:
 -   **CV**: The candidate's resume (Strict Source of Truth).
 -   **JD**: The job description.
 -   *(Optional)* **Evaluation**: A previous analysis of the match (e.g., from `application-coach` skill).
+
+**Research**:
+-   Perform a web search for `[Company Name] careers values mission` and `[Company Name] engineering culture`.
+-   Extract 3-5 key points about what they value (e.g., "Customer Obsession", "Speed", "Wellness").
 
 **Analyze**:
 1.  **The Hook (The "Why")**: Why does *this* candidate want *this* job *now*? (e.g., "Love the mission", "Tech stack pivot", "Leadership step up").
@@ -61,10 +65,37 @@ Draft a markdown document (`hr-interview-prep.md`) containing:
 -   Draft the **STAR Answer** (Situation, Task, Action, Result) using *specific metrics* from the CV.
     -   **Strict Rule**: If a specific story is needed but not found in CV, output: `[MISSING: Please add a story about X here]`. Do not invent one.
 
-#### D. Culture & Values (The Fuellie Check)
--   Extract 1-2 core values from the JD (e.g., "Ownership", "Kindness", "Speed").
+#### D. Culture & Values (The Value Check)
+-   Extract 1-2 core values from the JD.
 -   Draft a behavioral question targeting that value.
 -   Draft a STAR answer using a relevant story from the CV.
+
+#### E. The Reverse Interview (Strategic Questions)
+-   Draft 3 strategic questions for the candidate to ask the HR interviewer.
+-   **Goal**: Demonstrate deep research, strategic thinking, and genuine interest ("Wow" factor).
+-   **Types**:
+    -   *The Strategic*: Bridges the role to broader company goals.
+    -   *The Cultural*: Drills down into a specific value or challenge.
+    -   *The Closer*: Uncovers potential objections immediately.
+
+#### F. Company & Role Highlights (The Quick Cheat Sheet)
+-   Perform comprehensive research and synthesize key facts into an actionable summary.
+-   **Company Overview**:
+    -   **Mission**: One clear sentence on what the company exists to do.
+    -   **Product/Service**: Brief description of what they build/sell (1-2 sentences).
+    -   **Stage**: Startup/Scale-up/Enterprise (include funding stage if available).
+-   **Culture & Values**:
+    -   Extract 3-5 core values from careers page or JD.
+    -   Include specific cultural practices mentioned (e.g., "Refuel Days", "Superhero Awards").
+-   **Recent Context** (if found):
+    -   Recent funding rounds, acquisitions, or major product launches.
+    -   Any newsworthy achievements or challenges.
+    -   Growth trajectory or market position.
+-   **The Role in Context**:
+    -   **Core Challenge**: What problem does this role solve? (1 sentence)
+    -   **Success Looks Like**: What would "winning" in this role mean in 6-12 months?
+    -   **Role Essence**: The "One Thing" this role must deliver.
+    -   **Key Stakeholders**: Who will this role work most closely with?
 
 ---
 
@@ -120,6 +151,32 @@ Draft a markdown document (`hr-interview-prep.md`) containing:
 *   **Notice Period**: [Standard/Specific]
 *   **Salary Expectations**: "Market rate for [Role], flexible for the right fit, aiming for range X-Y."
 *   **Work Rights**: [Citizen/Visa Status]
+
+---
+
+## 6. Your Turn to Ask (The Reverse Interview)
+**Goal**: Show deep engagement and "wow" them with your research.
+
+**Question 1 (Strategic - The "Wow" Factor)**:
+> "[Draft a question connecting a specific JD responsibility/challenge to business success]"
+
+**Question 2 (Cultural - The "Real" Insight)**:
+> "[Draft a question about how a specific company value is lived in practice]"
+
+**Question 3 (The Closer - The "Confidence" Move)**:
+> "Is there anything about my background that makes you hesitant to move me forward? I'd love to address it now."
+
+---
+
+## 7. Company & Role Highlights (The Quick Catch Up)
+**The Company**
+*   **Mission**: [Found via search]
+*   **Key Values**: [Found via search]
+*   **Recent Context**: [Found via search]
+
+**The Role**
+*   **Core Challenge**: [One sentence summary]
+*   **Success Metric**: [What winning looks like]
 
 ```
 
