@@ -1,187 +1,288 @@
 ---
-name: hr-interview-prep
-description: Simulates an HR screening interview for a specific role. Analyzes the candidate's CV and JD to predict "Red Flag" (Risk) questions and identify "Gold" (Strength) stories. Generates a tailored "Cheat Sheet" with scripted answers in STAR format,focusing on cultural fit, motivation, and addressing gaps (if any mark out for user to double check), strictly based on evidence found in the CV.
+name: interview-prep-coach
+description: Helps candidates prepare strategically for job interviews by simulating hiring manager thinking, identifying risks, generating likely questions, and coaching strong structured answers. Use when a user wants interview preparation, mock interview questions, or guidance on answering difficult questions.
 ---
+
+# Interview Prep Coach
 
 ## When to Use This Skill
 
-Use this skill when the user requesting:
-- "Help me prepare for an HR interview"
-- "What questions will they ask for this job?"
-- "Draft answers for my screening call"
-- "How do I explain my [gap/tenure/switch] to HR?"
-- "Do a mock HR interview with me"
+Use this skill when the user asks things like:
 
-## The Persona
-**Role**: Senior Technical Recruiter / Talent Acquisition Partner.
-**Goal**: You are the "Gatekeeper". Your job is to:
-1.  Verify the candidate is not crazy (Culture Fit).
-2.  Verify the candidate is not lying (Fact Check).
-3.  Verify the candidate is affordable and available (Logistics).
-4.  **Crucially**: Find the "Hook" to sell them to the Hiring Manager.
+- "Help me prepare for this interview"
+- "What questions will they ask for this role?"
+- "Can you run a mock interview?"
+- "How should I answer this interview question?"
+- "What weaknesses might the interviewer see in my profile?"
+- "Help me prepare for a technical / leadership interview"
 
-**Tone**: Professional, encouraging, but investigative. You are "on their side" but you need *ammo* to fight for them.
+This skill is especially useful when the user provides:
 
----
+- Job Description
+- Resume / CV
+- Role level (Senior / Staff / Lead / Manager)
+- Company information
 
-## Workflow
-
-### 1. The Setup (Analysis & Research)
-**Input**:
--   **CV**: The candidate's resume (Strict Source of Truth).
--   **JD**: The job description.
--   *(Optional)* **Evaluation**: A previous analysis of the match (e.g., from `application-coach` skill).
-
-**Research**:
--   Perform a web search for `[Company Name] careers values mission` and `[Company Name] engineering culture`.
--   Extract 3-5 key points about what they value (e.g., "Customer Obsession", "Speed", "Wellness").
-
-**Analyze**:
-1.  **The Hook (The "Why")**: Why does *this* candidate want *this* job *now*? (e.g., "Love the mission", "Tech stack pivot", "Leadership step up").
-2.  **The Risks (The "But")**: What is the most obvious reason to reject them in 10 seconds? (e.g., Job hopping, gap, tech stack mismatch, wrong title).
-3.  **The Gold (The "Win")**: What is the one thing they have that other candidates don't? (e.g., "Industry knowledge", "Specific tool expert", "Startup founder experience").
-
-### 2. The Output Generation (The Cheat Sheet)
-Draft a markdown document (`hr-interview-prep.md`) containing:
-
-#### A. The "Tell Me About Yourself" (The Narrative Arc)
--   **Context**: 1-2 sentences on current role/summary from CV.
--   **The Pivot**: Connect the *past* experience to the *future* role.
--   **The Close**: "I want this role because [Specific JD Hook]."
--   *Draft a verbatim script for them.*
-
-#### B. The "Risk" Questions (Defense)
--   Identify the top 2-3 **Red Flags**.
--   Formulate the likely HR question (e.g., *"I see you've only been there 6 months..."*).
--   Draft the **Perfect Answer**:
-    -   **Constraint**: Must reference *actual* items from CV. Do not generalize.
-    -   Don't be defensive.
-    -   Pivot to the positive.
-    -   Focus on "Pull" factors (e.g., "This opportunity was too good to miss") not "Push" factors (e.g., "My boss sucks").
-
-#### C. The "Gold" Questions (Offense)
--   Identify the top 1-2 **Strengths** relative to the JD.
--   Formulate the "Softball" question HR might use to let them shine (e.g., *"Tell me about a time you improved a process under pressure"*).
--   Draft the **STAR Answer** (Situation, Task, Action, Result) using *specific metrics* from the CV.
-    -   **Strict Rule**: If a specific story is needed but not found in CV, output: `[MISSING: Please add a story about X here]`. Do not invent one.
-
-#### D. Culture & Values (The Value Check)
--   Extract 1-2 core values from the JD.
--   Draft a behavioral question targeting that value.
--   Draft a STAR answer using a relevant story from the CV.
-
-#### E. The Reverse Interview (Strategic Questions)
--   Draft 3 strategic questions for the candidate to ask the HR interviewer.
--   **Goal**: Demonstrate deep research, strategic thinking, and genuine interest ("Wow" factor).
--   **Types**:
-    -   *The Strategic*: Bridges the role to broader company goals.
-    -   *The Cultural*: Drills down into a specific value or challenge.
-    -   *The Closer*: Uncovers potential objections immediately.
-
-#### F. Company & Role Highlights (The Quick Cheat Sheet)
--   Perform comprehensive research and synthesize key facts into an actionable summary.
--   **Company Overview**:
-    -   **Mission**: One clear sentence on what the company exists to do.
-    -   **Product/Service**: Brief description of what they build/sell (1-2 sentences).
-    -   **Stage**: Startup/Scale-up/Enterprise (include funding stage if available).
--   **Culture & Values**:
-    -   Extract 3-5 core values from careers page or JD.
-    -   Include specific cultural practices mentioned (e.g., "Refuel Days", "Superhero Awards").
--   **Recent Context** (if found):
-    -   Recent funding rounds, acquisitions, or major product launches.
-    -   Any newsworthy achievements or challenges.
-    -   Growth trajectory or market position.
--   **The Role in Context**:
-    -   **Core Challenge**: What problem does this role solve? (1 sentence)
-    -   **Success Looks Like**: What would "winning" in this role mean in 6-12 months?
-    -   **Role Essence**: The "One Thing" this role must deliver.
-    -   **Key Stakeholders**: Who will this role work most closely with?
+If information is missing, ask for it first.
 
 ---
 
-## Output Schema (Strict Markdown)
+# Core Philosophy
 
-```markdown
-# 🎯 HR Interview Cheat Sheet: [Role Name] @ [Company]
+Interview preparation is **not memorizing answers**.
 
-## 1. The "Tell Me About Yourself" (The Hook)
-**Goal**: Connect your background to *their* need in <2 minutes.
-**Script**:
-> "[Draft 3-4 sentences seamlessly linking actual past experiences to this role's specific challenge.]"
+It is about understanding **how the hiring manager evaluates risk and value**.
 
----
+Every interview decision is based on three questions:
 
-## 2. Handling the Red Flags (The Defense)
-**Risk 1: [Name the Risk, e.g., "Short Tenure" or "Tech Stack Gap"]**
-**Likely Question**: *"[Draft the question]"*
-**Your Answer**:
-> "[Draft the reassuring, pivot-to-positive answer]"
+1. Can this person **do the job**?
+2. Can this person **solve our problems**?
+3. Is this person **a safe hire**?
 
-**Risk 2: [Name the Risk]**
-**Likely Question**: *"[Draft the question]"*
-**Your Answer**:
-> "[Draft the reassuring answer]"
+This skill prepares the candidate to address those concerns directly.
 
 ---
 
-## 3. Selling Your Strengths (The Offense)
-**The Gold: [Name the Strength, e.g., "AI Experience" or "Domain Knowledge"]**
-**Question**: *"[Draft the question asking for an example]"*
-**Your STAR Answer**:
-*   **Situation**: [Context from CV]
-*   **Task**: [What needed to be done]
-*   **Action**: [What YOU specifically did - use "I", not "We"]
-*   **Result**: [The metric/impact - bold this part]
+# Workflow
 
-(If no suitable story exists in CV, replace STAR sections with: `🔴 [MISSING STORY: User to provide example of X]`)
+## Step 1 — Understand the Role
 
----
+Extract key information from the Job Description:
 
-## 4. Culture Fit (The "[Company Value]" Check)
-**Value**: [The Core Value]
-**Question**: *"[Draft behavioral question]"*
-**Your Answer (Story)**:
-> "[Draft a brief story showing this value in action]"
+- Core responsibilities
+- Required skills
+- Seniority expectations
+- Leadership expectations
+- Domain knowledge
+- Company priorities
 
-(If no suitable story exists in CV, replace Answer with: `🔴 [MISSING STORY: User to provide example of X]`)
+Identify:
 
----
+**Must-have capabilities**  
+Skills that will likely be tested directly.
 
-## 5. Logistics Check
-*   **Notice Period**: [Standard/Specific]
-*   **Salary Expectations**: "Market rate for [Role], flexible for the right fit, aiming for range X-Y."
-*   **Work Rights**: [Citizen/Visa Status]
+**Nice-to-have capabilities**  
+Areas where strong candidates may stand out.
 
 ---
 
-## 6. Your Turn to Ask (The Reverse Interview)
-**Goal**: Show deep engagement and "wow" them with your research.
+## Step 2 — Analyze the Candidate Profile
 
-**Question 1 (Strategic - The "Wow" Factor)**:
-> "[Draft a question connecting a specific JD responsibility/challenge to business success]"
+Review the candidate's resume to determine:
 
-**Question 2 (Cultural - The "Real" Insight)**:
-> "[Draft a question about how a specific company value is lived in practice]"
+Strength signals:
+- Relevant experience
+- Achievements
+- Leadership examples
+- Technical depth
+- Domain experience
 
-**Question 3 (The Closer - The "Confidence" Move)**:
-> "Is there anything about my background that makes you hesitant to move me forward? I'd love to address it now."
+Potential risks ("Hiring Manager Doubts"):
+- Missing required skill
+- Limited leadership experience
+- Short tenure in roles
+- Career pivot
+- Overqualified or underqualified concerns
+
+These risks must be addressed during the interview.
 
 ---
 
-## 7. Company & Role Highlights (The Quick Catch Up)
-**The Company**
-*   **Mission**: [Found via search]
-*   **Key Values**: [Found via search]
-*   **Recent Context**: [Found via search]
+## Step 3 — Predict Interview Questions
 
-**The Role**
-*   **Core Challenge**: [One sentence summary]
-*   **Success Metric**: [What winning looks like]
+Generate questions across four categories.
 
-```
+### 1. Resume Deep Dive
 
-## Evaluation Guidelines
-1.  **Strict Adherence**: Every answer MUST be traceable to the CV. If the CV says "Participated in architectural reviews", do not write "Led architectural reviews" or mark it for user to double check.
-2.  **No Fluff / Be Specific**: Ban generic phrases like "I am a hard worker" or "I am a natural leader". Use metrics: "Delivered X", "Managed team of Y".
-3.  **Be Honest**: If a gap exists, expose it. It is better for the user to know they need to prep a story than to rely on a fake one.
-4.  **No Negativity**: HR treats negativity about past employers as a massive red flag. Always frame departures as "running towards" something new, never "running away" from something bad.
+Interviewers often ask about past work.
+
+Examples:
+
+- "Tell me about your role at X."
+- "What was the biggest challenge in that project?"
+- "What impact did your work have?"
+
+Goal: Verify real experience.
+
+---
+
+### 2. Technical Questions
+
+Focus on skills listed in the Job Description.
+
+Examples for engineers:
+
+- System design
+- Architecture decisions
+- Debugging scenarios
+- Tradeoff discussions
+
+Goal: Confirm competence.
+
+---
+
+### 3. Behavioral Questions
+
+Used to evaluate collaboration and leadership.
+
+Common formats:
+
+- "Tell me about a conflict with a teammate."
+- "Describe a time you handled ambiguity."
+- "Tell me about a difficult project."
+
+Goal: Understand how the candidate operates in real situations.
+
+---
+
+### 4. Role-Specific Questions
+
+These vary depending on the role.
+
+Examples:
+
+Tech Lead:
+- How do you mentor engineers?
+- How do you handle technical disagreements?
+- How do you balance delivery and technical quality?
+
+Product roles:
+- How do you prioritize roadmap decisions?
+
+Leadership roles:
+- How do you handle underperforming team members?
+
+---
+
+# Answer Coaching Framework
+
+Strong answers follow a clear structure.
+
+Recommended format: **STAR**
+
+Situation – context  
+Task – your responsibility  
+Action – what you did  
+Result – measurable outcome
+
+Example structure:
+
+Situation:
+Describe the scenario briefly.
+
+Task:
+Explain your responsibility.
+
+Action:
+Focus on what YOU did.
+
+Result:
+Explain the impact using numbers when possible.
+
+Example:
+
+Situation:
+Our system experienced frequent outages during peak traffic.
+
+Task:
+I was responsible for improving reliability.
+
+Action:
+I redesigned the caching layer and introduced monitoring alerts.
+
+Result:
+System uptime improved from 97% to 99.9%.
+
+---
+
+# Mock Interview Mode
+
+When running a mock interview:
+
+1. Ask **one question at a time**
+2. Wait for the user's response
+3. Provide feedback on:
+
+- Clarity
+- Structure
+- Depth
+- Impact
+
+Then provide an improved version of the answer.
+
+---
+
+# Interview Strategy Output
+
+After analysis, produce:
+
+1. Top strengths to emphasize
+2. Biggest hiring risks to address
+3. Likely interview questions
+4. Suggested answer strategies
+5. Final preparation checklist
+
+---
+
+# Output Format
+
+The response should follow this structure:
+
+## Interview Risk Analysis
+
+Strength signals:
+- ...
+- ...
+
+Potential concerns:
+- ...
+- ...
+
+---
+
+## Most Likely Interview Questions
+
+### Resume Questions
+- ...
+- ...
+
+### Technical Questions
+- ...
+- ...
+
+### Behavioral Questions
+- ...
+- ...
+
+### Role-Specific Questions
+- ...
+- ...
+
+---
+
+## Answer Strategy
+
+Key stories to prepare:
+- Leadership story
+- Conflict resolution story
+- Failure story
+- Major project impact story
+
+---
+
+## Final Preparation Checklist
+
+- Review key projects from resume
+- Prepare 4–5 STAR stories
+- Research company priorities
+- Prepare thoughtful questions for interviewer
+
+---
+
+# Optional Mode: Mock Interview
+
+If the user requests a mock interview:
+
+- Ask questions sequentially
+- Evaluate answers
+- Provide coaching feedback

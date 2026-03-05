@@ -3,3 +3,4 @@ input/*
 !input/.keep
 
 .DS_Store
+output/*

@@ -6,85 +6,186 @@ description: Crafts strategic, high-impact cover letters that address Hiring Man
 ## When to Use This Skill
 
 Use this skill when the user requests:
-- "Write a cover letter for this job"
-- "Draft a letter explaining why I'm a good fit despite missing X"
-- "Help me apply for this stretch role"
-- "Create a compelling narrative for my application"
 
-# Cover Letter Writer
+"Write a cover letter for this job"
 
-## Description
+"Draft a letter explaining why I'm a good fit despite missing X"
 
-This skill treats the cover letter as a **Strategic Risk Mitigation Document**, not a summary of the CV. Its goal is to hook the reader, address the "Elephant in the Room" (risks/gaps), and prove ROI.
+"Help me apply for this stretch role"
 
-It transforms standard "I am applying for..." letters into **Sales Pitches** using the **Hook-Bridge-Close** framework.
+"Create a compelling narrative for my application"
+
+## Required Inputs
+
+The following information is required to generate a high-quality cover letter:
+
+- Job description (or job link)
+- Candidate background, CV, or key experience
+- Role title
+- Company name
+
+Optional Inputs (if available):
+- Hiring manager name
+- Portfolio / LinkedIn / GitHub
+- Key achievements to highlight
+- Known qualification gaps or career pivots
+
+If required inputs are missing, ask the user for them before writing the letter.
+
+## Cover Letter Writer
+
+Description
+
+This skill treats the cover letter as a Strategic Risk Mitigation Document, not a summary of the CV. Its goal is to hook the reader, address the "Elephant in the Room" (risks or gaps), and prove the candidate’s potential return on investment.
+
+The letter should function like a concise sales pitch, using the Hook–Bridge–Close framework.
+
+Target length: 140–180 words
+Maximum length: 220 words
 
 ## Core Philosophy
 
-1.  **Don't Repeat the CV**: The CV is history; the Cover Letter is the future/potential.
-2.  **Attack the Risk**: If the candidate lacks a key skill or has a gap, the letter must address it head-on (The "Elephant in the Room").
-3.  **Prove the "Why"**: Why this specific company? Generic flattery is rejected. Specific mission alignment is required.
+**Do Not Repeat the CV**
+The CV is history. The cover letter shows future impact and intent.
 
----
+**Address the Risk**
+If the candidate lacks a key skill, has a gap, or is stretching into a role, address it directly.
+
+**Prove the “Why”**
+The letter must show why this specific company matters. Generic statements are not acceptable.
+
+**Respect Recruiter Attention**
+Hiring managers skim. Keep sentences short and paragraphs tight.
 
 ## Workflow
 
-### 1. Analyze the Context
+### Step 1 — Analyze the Context
 
-Before writing, identify:
-- **The Elephant**: What is the #1 reason they might say NO? (e.g., "Missing Elixir skill", "Job hopping", "Junior for the role").
-- **The Hook**: What is the #1 reason they might say YES? (e.g., "Built similar system at scale", "Deep domain expertise").
-- **The Tone**: Startup (Scrappy, hungry) vs Enterprise (Professional, reliable).
+Before writing, identify the following:
 
-### 2. The Narrative Structure (Hook-Bridge-Close)
+**The Hook**
+What is the strongest reason the candidate should be considered?
+Examples:
+- Relevant system built before
+- Leadership or domain experience
+- Proven impact
 
-#### Part 1: The Hook (0-10 seconds)
-**Goal**: Stop the scroll. Prove you get their problem immediately.
-*   **BAD**: "I am writing to apply for the [Role] position listed on [Website]."
-*   **GOOD**: "Your team is solving [Specific Problem from JD], which is exactly the challenge I solved at [Previous Company] by [Outcome]."
-*   **GOOD (Gap/Pivot)**: "I might not follow the traditional path for a [Role], but my background in [Unique Skill] gives me a unique advantage in [Specific JD Goal]."
+**The Elephant in the Room**
+What is the biggest risk the employer might see? Examples:
+- Missing skill
+- Career pivot
+- Limited leadership experience
+- Short tenure history
 
-#### Part 2: The Bridge (The "Elephant")
-**Goal**: Address the risk and turn it into strength.
-*   **Strategy**: "I know I lack [Skill X], but here is my plan/proof of potential."
-*   **Template**: "While my background is primarily [Current Skill], I have aggressively upskilled in [Target Skill] (see attached project), allowing me to bring [Unique Perspective] to your engineering team."
+**The Tone**
+Infer tone from the company and job description.
 
-#### Part 3: The Close (ROI & Call to Action)
-**Goal**: Reiterate value and ask for the meeting.
-*   **Strategy**: Connect personal mission to company mission.
-*   **Template**: "I am eager to bring my experience in [Strength] to help [Company] achieve [Goal mentioned in JD]. I would welcome the chance to discuss how I can contribute to [Specific Team Goal] in Q1."
+Startup tone:
+- energetic
+- concise
+- mission-driven
+- builder mentality
 
----
+Enterprise tone:
+- professional
+- reliable
+- impact-focused
+- collaborative leadership
 
-## Output Guidelines
+### Step 2 — Build the Narrative (Hook–Bridge–Close)
 
-1.  **Format**: **PLAIN TEXT**. No markdown headers (#), no bold (**), no italics (*). Ready for copy-pasting into email or text fields.
-2.  **Spacing**: Use standard double line breaks between paragraphs.
-3.  **Header**: Do not include physical addresses unless requested. Start with "Dear..."
-4.  **Strategy Note**: *Start* the response with a brief markdown block explaining the strategy, but keep the letter itself pure text below it.
+**Paragraph 1 — The Hook (2–3 sentences)**
 
----
+Capture attention immediately by referencing a problem or goal from the job description.
 
-## Output Template
+Bad example:
+"I am writing to apply for the role."
 
-```markdown
-**Strategy Note**: [Explain the "Angle" chosen - e.g., "We emphasized your startup speed to counter the lack of enterprise experience."]
+Good example:
+"Your team is solving [specific challenge], which closely aligns with the work I led at [previous company]."
 
----
-(Copy and paste the text below)
+For career pivots:
+"I may not follow the traditional path for this role, but my background in [unique skill] directly supports your goal of [JD objective]."
 
-Dear [Hiring Manager Name/Team Name],
+**Paragraph 2 — The Bridge (3–4 sentences)**
 
-[The Hook Paragraph]
+Demonstrate credibility and address the Elephant in the Room.
 
-[The Bridge / The Meat Paragraph - use simple bullet points: "- Achievement" if needed, but avoid complex formatting]
+Strategies:
+- show measurable outcomes
+- highlight transferable skills
+- acknowledge gaps while showing rapid learning
 
-[The "Why Us" Paragraph]
+Example structure:
+- Led development of [system or product]
+- Delivered [measurable result]
+- Built experience in [relevant technology or leadership]
 
-[The Close Paragraph]
+If a gap exists:
+"While my background is primarily in [current area], I have actively developed experience in [target area] through [project, role, or initiative]."
+
+**Paragraph 3 — Why This Company (1–2 sentences)**
+
+Explain why this company specifically matters.
+
+Acceptable references:
+- company mission
+- product impact
+- engineering culture
+- market problem they are solving
+
+Avoid generic flattery.
+
+**Paragraph 4 — Close (1–2 sentences)**
+
+Reinforce value and invite a conversation.
+
+Example:
+"I would welcome the opportunity to discuss how my experience in [strength] could contribute to your team."
+
+### Quality Control Checklist
+
+Before finalizing the letter, verify:
+
+- The first sentence references the company’s problem or mission.
+- The letter does not repeat the CV line-by-line.
+- The Elephant in the Room is addressed if relevant.
+- The company name and role appear naturally.
+- The total length is between 140 and 180 words.
+- Paragraphs are short and easy to scan.
+
+### Output Guidelines
+
+Format: Plain text only.
+
+**Do not use:**
+
+- markdown headers
+- bold formatting
+- bullet lists
+- special symbols
+
+Use simple paragraphs separated by double line breaks.
+
+Do not include physical mailing addresses unless requested.
+
+### Output Template
+
+**Strategy Note:**
+Briefly explain the angle used for the letter. For example:
+"We emphasize the candidate's architecture leadership to offset the limited fintech background."
+
+Dear [Hiring Manager Name or Hiring Team],
+
+[Hook paragraph]
+
+[Bridge paragraph addressing proof and risks]
+
+[Why this company paragraph]
+
+[Closing paragraph]
 
 Sincerely,
 
 [Candidate Name]
-[LinkedIn/Portfolio Link]
-```
+[LinkedIn or Portfolio link]
